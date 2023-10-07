@@ -20,8 +20,6 @@ repositories {
 }
 
 dependencies {
-    // Connector to DB
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     // Data access using JDBC
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     // "Main" Spring boot with webflux (reactive)
@@ -33,8 +31,6 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    // DB in memory
-    runtimeOnly("com.h2database:h2")
     // Connector PostgresSQL
     runtimeOnly("org.postgresql:postgresql")
 
@@ -42,6 +38,9 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("com.ninja-squad:springmockk:3.0.1")
+    testImplementation("org.flywaydb:flyway-core")
+    // DB in memory
+    testRuntimeOnly("com.h2database:h2")
 }
 
 tasks.withType<KotlinCompile> {

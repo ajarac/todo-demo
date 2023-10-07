@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS todos;
 
-CREATE TABLE todos
+CREATE TABLE todo
 (
     id          uuid         NOT NULL DEFAULT uuid_generate_v4(),
     title       VARCHAR(255) NOT NULL,
