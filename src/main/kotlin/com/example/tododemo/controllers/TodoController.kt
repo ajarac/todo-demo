@@ -4,6 +4,7 @@ import com.example.tododemo.dto.CreateTodoDTO
 import com.example.tododemo.entities.Todo
 import com.example.tododemo.services.TodoService
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -37,7 +38,7 @@ class TodoController(private val todoService: TodoService) {
         log.info("TodoController.create: createTodoDTO=$createTodoDTO")
         val todoCreated = todoService.create(createTodoDTO)
         log.info("TodoController.create: todoCreated=$todoCreated")
-        return ResponseEntity.ok(todoCreated)
+        return ResponseEntity<Todo>(todoCreated, HttpStatus.CREATED)
     }
 
     @PutMapping("/{id}/complete")
