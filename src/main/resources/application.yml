@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/todos
+    username: root
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+myapp:
+  url: https://www.todo.com/
